@@ -1,9 +1,9 @@
 	.file	"test.c"
 	.text
-	.globl	isMatch                         # -- Begin function isMatch
+	.globl	isMatch                         
 	.p2align	4
 	.type	isMatch,@function
-isMatch:                                # @isMatch
+isMatch:                      
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -16,11 +16,11 @@ isMatch:                                # @isMatch
 	movq	%rsi, -16(%rbp)
 	movq	-8(%rbp), %rdi
 	callq	strlen@PLT
-                                        # kill: def $eax killed $eax killed $rax
+                                       
 	movl	%eax, -20(%rbp)
 	movq	-16(%rbp), %rdi
 	callq	strlen@PLT
-                                        # kill: def $eax killed $eax killed $rax
+                                  
 	movl	%eax, -24(%rbp)
 	movl	-20(%rbp), %eax
 	addl	$1, %eax
@@ -29,11 +29,11 @@ isMatch:                                # @isMatch
 	callq	malloc@PLT
 	movq	%rax, -32(%rbp)
 	movl	$0, -36(%rbp)
-.LBB0_1:                                # =>This Inner Loop Header: Depth=1
+.LBB0_1:                              
 	movl	-36(%rbp), %eax
 	cmpl	-20(%rbp), %eax
 	jg	.LBB0_4
-# %bb.2:                                #   in Loop: Header=BB0_1 Depth=1
+# %bb.2:                               
 	movl	-24(%rbp), %eax
 	addl	$1, %eax
 	movslq	%eax, %rdi
@@ -43,7 +43,7 @@ isMatch:                                # @isMatch
 	movq	-32(%rbp), %rax
 	movslq	-36(%rbp), %rcx
 	movq	%rdx, (%rax,%rcx,8)
-# %bb.3:                                #   in Loop: Header=BB0_1 Depth=1
+# %bb.3:                               
 	movl	-36(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -36(%rbp)
@@ -53,11 +53,11 @@ isMatch:                                # @isMatch
 	movq	(%rax), %rax
 	movb	$1, (%rax)
 	movl	$1, -40(%rbp)
-.LBB0_5:                                # =>This Inner Loop Header: Depth=1
+.LBB0_5:                             
 	movl	-40(%rbp), %eax
 	cmpl	-24(%rbp), %eax
 	jg	.LBB0_10
-# %bb.6:                                #   in Loop: Header=BB0_5 Depth=1
+# %bb.6:                                
 	movq	-16(%rbp), %rax
 	movl	-40(%rbp), %ecx
 	subl	$1, %ecx
@@ -65,7 +65,7 @@ isMatch:                                # @isMatch
 	movsbl	(%rax,%rcx), %eax
 	cmpl	$42, %eax
 	jne	.LBB0_8
-# %bb.7:                                #   in Loop: Header=BB0_5 Depth=1
+# %bb.7:                             
 	movq	-32(%rbp), %rax
 	movq	(%rax), %rax
 	movl	-40(%rbp), %ecx
@@ -77,28 +77,28 @@ isMatch:                                # @isMatch
 	movslq	-40(%rbp), %rcx
 	andb	$1, %dl
 	movb	%dl, (%rax,%rcx)
-.LBB0_8:                                #   in Loop: Header=BB0_5 Depth=1
+.LBB0_8:                           
 	jmp	.LBB0_9
-.LBB0_9:                                #   in Loop: Header=BB0_5 Depth=1
+.LBB0_9:                             
 	movl	-40(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -40(%rbp)
 	jmp	.LBB0_5
 .LBB0_10:
 	movl	$1, -44(%rbp)
-.LBB0_11:                               # =>This Loop Header: Depth=1
-                                        #     Child Loop BB0_13 Depth 2
+.LBB0_11:                             
+                                      
 	movl	-44(%rbp), %eax
 	cmpl	-20(%rbp), %eax
 	jg	.LBB0_30
-# %bb.12:                               #   in Loop: Header=BB0_11 Depth=1
+# %bb.12:                               
 	movl	$1, -48(%rbp)
-.LBB0_13:                               #   Parent Loop BB0_11 Depth=1
-                                        # =>  This Inner Loop Header: Depth=2
+.LBB0_13:                        
+                                       
 	movl	-48(%rbp), %eax
 	cmpl	-24(%rbp), %eax
 	jg	.LBB0_28
-# %bb.14:                               #   in Loop: Header=BB0_13 Depth=2
+# %bb.14:                              
 	movq	-16(%rbp), %rax
 	movl	-48(%rbp), %ecx
 	subl	$1, %ecx
@@ -106,7 +106,7 @@ isMatch:                                # @isMatch
 	movsbl	(%rax,%rcx), %eax
 	cmpl	$42, %eax
 	jne	.LBB0_22
-# %bb.15:                               #   in Loop: Header=BB0_13 Depth=2
+# %bb.15:                           
 	movq	-32(%rbp), %rax
 	movslq	-44(%rbp), %rcx
 	movq	(%rax,%rcx,8), %rcx
@@ -115,9 +115,9 @@ isMatch:                                # @isMatch
 	movslq	%eax, %rdx
 	movb	$1, %al
 	testb	$1, (%rcx,%rdx)
-	movb	%al, -57(%rbp)                  # 1-byte Spill
+	movb	%al, -57(%rbp)         
 	jne	.LBB0_21
-# %bb.16:                               #   in Loop: Header=BB0_13 Depth=2
+# %bb.16:                           
 	movq	-32(%rbp), %rax
 	movl	-44(%rbp), %ecx
 	subl	$1, %ecx
@@ -125,11 +125,11 @@ isMatch:                                # @isMatch
 	movq	(%rax,%rcx,8), %rcx
 	movslq	-48(%rbp), %rdx
 	xorl	%eax, %eax
-                                        # kill: def $al killed $al killed $eax
+                                    
 	testb	$1, (%rcx,%rdx)
-	movb	%al, -58(%rbp)                  # 1-byte Spill
+	movb	%al, -58(%rbp)            
 	je	.LBB0_20
-# %bb.17:                               #   in Loop: Header=BB0_13 Depth=2
+# %bb.17:                              
 	movq	-8(%rbp), %rax
 	movl	-44(%rbp), %ecx
 	subl	$1, %ecx
@@ -142,9 +142,9 @@ isMatch:                                # @isMatch
 	movsbl	(%rax,%rdx), %edx
 	movb	$1, %al
 	cmpl	%edx, %ecx
-	movb	%al, -59(%rbp)                  # 1-byte Spill
+	movb	%al, -59(%rbp)        
 	je	.LBB0_19
-# %bb.18:                               #   in Loop: Header=BB0_13 Depth=2
+# %bb.18:                          
 	movq	-16(%rbp), %rax
 	movl	-48(%rbp), %ecx
 	subl	$2, %ecx
@@ -152,15 +152,15 @@ isMatch:                                # @isMatch
 	movsbl	(%rax,%rcx), %eax
 	cmpl	$46, %eax
 	sete	%al
-	movb	%al, -59(%rbp)                  # 1-byte Spill
-.LBB0_19:                               #   in Loop: Header=BB0_13 Depth=2
-	movb	-59(%rbp), %al                  # 1-byte Reload
-	movb	%al, -58(%rbp)                  # 1-byte Spill
-.LBB0_20:                               #   in Loop: Header=BB0_13 Depth=2
-	movb	-58(%rbp), %al                  # 1-byte Reload
-	movb	%al, -57(%rbp)                  # 1-byte Spill
-.LBB0_21:                               #   in Loop: Header=BB0_13 Depth=2
-	movb	-57(%rbp), %dl                  # 1-byte Reload
+	movb	%al, -59(%rbp)         
+.LBB0_19:                          
+	movb	-59(%rbp), %al       
+	movb	%al, -58(%rbp)             
+.LBB0_20:                           
+	movb	-58(%rbp), %al              
+	movb	%al, -57(%rbp)            
+.LBB0_21:                               
+	movb	-57(%rbp), %dl              
 	movq	-32(%rbp), %rax
 	movslq	-44(%rbp), %rcx
 	movq	(%rax,%rcx,8), %rax
@@ -168,7 +168,7 @@ isMatch:                                # @isMatch
 	andb	$1, %dl
 	movb	%dl, (%rax,%rcx)
 	jmp	.LBB0_26
-.LBB0_22:                               #   in Loop: Header=BB0_13 Depth=2
+.LBB0_22:                             
 	movq	-16(%rbp), %rax
 	movl	-48(%rbp), %ecx
 	subl	$1, %ecx
@@ -176,7 +176,7 @@ isMatch:                                # @isMatch
 	movsbl	(%rax,%rcx), %eax
 	cmpl	$46, %eax
 	je	.LBB0_24
-# %bb.23:                               #   in Loop: Header=BB0_13 Depth=2
+# %bb.23:                              
 	movq	-8(%rbp), %rax
 	movl	-44(%rbp), %ecx
 	subl	$1, %ecx
@@ -189,7 +189,7 @@ isMatch:                                # @isMatch
 	movsbl	(%rcx,%rdx), %ecx
 	cmpl	%ecx, %eax
 	jne	.LBB0_25
-.LBB0_24:                               #   in Loop: Header=BB0_13 Depth=2
+.LBB0_24:                             
 	movq	-32(%rbp), %rax
 	movl	-44(%rbp), %ecx
 	subl	$1, %ecx
@@ -205,18 +205,18 @@ isMatch:                                # @isMatch
 	movslq	-48(%rbp), %rcx
 	andb	$1, %dl
 	movb	%dl, (%rax,%rcx)
-.LBB0_25:                               #   in Loop: Header=BB0_13 Depth=2
+.LBB0_25:                              
 	jmp	.LBB0_26
-.LBB0_26:                               #   in Loop: Header=BB0_13 Depth=2
+.LBB0_26:                              
 	jmp	.LBB0_27
-.LBB0_27:                               #   in Loop: Header=BB0_13 Depth=2
+.LBB0_27:                              
 	movl	-48(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -48(%rbp)
 	jmp	.LBB0_13
-.LBB0_28:                               #   in Loop: Header=BB0_11 Depth=1
+.LBB0_28:                             
 	jmp	.LBB0_29
-.LBB0_29:                               #   in Loop: Header=BB0_11 Depth=1
+.LBB0_29:                              
 	movl	-44(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -44(%rbp)
@@ -230,16 +230,16 @@ isMatch:                                # @isMatch
 	andb	$1, %al
 	movb	%al, -49(%rbp)
 	movl	$0, -56(%rbp)
-.LBB0_31:                               # =>This Inner Loop Header: Depth=1
+.LBB0_31:                              
 	movl	-56(%rbp), %eax
 	cmpl	-20(%rbp), %eax
 	jg	.LBB0_34
-# %bb.32:                               #   in Loop: Header=BB0_31 Depth=1
+# %bb.32:                              
 	movq	-32(%rbp), %rax
 	movslq	-56(%rbp), %rcx
 	movq	(%rax,%rcx,8), %rdi
 	callq	free@PLT
-# %bb.33:                               #   in Loop: Header=BB0_31 Depth=1
+# %bb.33:                               
 	movl	-56(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -56(%rbp)
@@ -256,11 +256,11 @@ isMatch:                                # @isMatch
 .Lfunc_end0:
 	.size	isMatch, .Lfunc_end0-isMatch
 	.cfi_endproc
-                                        # -- End function
-	.globl	main                            # -- Begin function main
+                                     
+	.globl	main                       
 	.p2align	4
 	.type	main,@function
-main:                                   # @main
+main:                                  
 	.cfi_startproc
 # %bb.0:
 	pushq	%rbp
@@ -277,10 +277,10 @@ main:                                   # @main
 	movl	$80, %edx
 	callq	memcpy@PLT
 	movl	$0, -104(%rbp)
-.LBB1_1:                                # =>This Inner Loop Header: Depth=1
+.LBB1_1:                                
 	cmpl	$5, -104(%rbp)
 	jge	.LBB1_4
-# %bb.2:                                #   in Loop: Header=BB1_1 Depth=1
+# %bb.2:                                
 	movslq	-104(%rbp), %rcx
 	leaq	-96(%rbp), %rax
 	shlq	$4, %rcx
@@ -308,7 +308,7 @@ main:                                   # @main
 	leaq	.L.str.9(%rip), %rdi
 	movb	$0, %al
 	callq	printf@PLT
-# %bb.3:                                #   in Loop: Header=BB1_1 Depth=1
+# %bb.3:                               
 	movl	-104(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, -104(%rbp)
@@ -330,54 +330,54 @@ main:                                   # @main
 .Lfunc_end1:
 	.size	main, .Lfunc_end1-main
 	.cfi_endproc
-                                        # -- End function
-	.type	.L.str,@object                  # @.str
+                                      
+	.type	.L.str,@object                
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .L.str:
 	.asciz	"aa"
 	.size	.L.str, 3
 
-	.type	.L.str.1,@object                # @.str.1
+	.type	.L.str.1,@object             
 .L.str.1:
 	.asciz	"a"
 	.size	.L.str.1, 2
 
-	.type	.L.str.2,@object                # @.str.2
+	.type	.L.str.2,@object                
 .L.str.2:
 	.asciz	"a*"
 	.size	.L.str.2, 3
 
-	.type	.L.str.3,@object                # @.str.3
+	.type	.L.str.3,@object                
 .L.str.3:
 	.asciz	"ab"
 	.size	.L.str.3, 3
 
-	.type	.L.str.4,@object                # @.str.4
+	.type	.L.str.4,@object                
 .L.str.4:
 	.asciz	".*"
 	.size	.L.str.4, 3
 
-	.type	.L.str.5,@object                # @.str.5
+	.type	.L.str.5,@object               
 .L.str.5:
 	.asciz	"aab"
 	.size	.L.str.5, 4
 
-	.type	.L.str.6,@object                # @.str.6
+	.type	.L.str.6,@object                
 .L.str.6:
 	.asciz	"c*a*b"
 	.size	.L.str.6, 6
 
-	.type	.L.str.7,@object                # @.str.7
+	.type	.L.str.7,@object                
 .L.str.7:
 	.asciz	"mississippi"
 	.size	.L.str.7, 12
 
-	.type	.L.str.8,@object                # @.str.8
+	.type	.L.str.8,@object          
 .L.str.8:
 	.asciz	"mis*is*p*."
 	.size	.L.str.8, 11
 
-	.type	.L__const.main.test_cases,@object # @__const.main.test_cases
+	.type	.L__const.main.test_cases,@object 
 	.section	.data.rel.ro,"aw",@progbits
 	.p2align	4, 0x0
 .L__const.main.test_cases:
@@ -393,23 +393,22 @@ main:                                   # @main
 	.quad	.L.str.8
 	.size	.L__const.main.test_cases, 80
 
-	.type	.L.str.9,@object                # @.str.9
+	.type	.L.str.9,@object             
 	.section	.rodata.str1.1,"aMS",@progbits,1
 .L.str.9:
 	.asciz	"s = \"%s\", p = \"%s\" -> %s\n"
 	.size	.L.str.9, 26
 
-	.type	.L.str.10,@object               # @.str.10
+	.type	.L.str.10,@object             
 .L.str.10:
 	.asciz	"true"
 	.size	.L.str.10, 5
 
-	.type	.L.str.11,@object               # @.str.11
+	.type	.L.str.11,@object             
 .L.str.11:
 	.asciz	"false"
 	.size	.L.str.11, 6
 
-	.ident	"clang version 20.1.8"
 	.section	".note.GNU-stack","",@progbits
 	.addrsig
 	.addrsig_sym isMatch
